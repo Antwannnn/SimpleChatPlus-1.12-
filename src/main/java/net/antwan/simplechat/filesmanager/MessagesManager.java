@@ -47,7 +47,7 @@ public class MessagesManager {
         try{
             this.getConfig().save(this.messagesFile);
         } catch(Exception e){
-            main.getLogger().log(Level.SEVERE, "Could not save config to " + this.messagesConfig, e);
+            main.getLogger().log(Level.SEVERE, "Could not save config to: " + this.messagesConfig, e);
         }
     }
     public void saveDefaultConfig(){
