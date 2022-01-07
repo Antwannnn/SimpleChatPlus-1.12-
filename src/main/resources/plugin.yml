@@ -1,0 +1,11 @@
+name: SimpleChatPlus
+version: '1.0b48'
+main: net.antwan.simplechat.Main
+author: Atsura
+description: SimpleChat+ is a easy to use plugin based on chat moderation, management and filtering.
+commands:
+  chat:
+    description: Core chat command of the plugin.
+    permission: scp.chat
+    aliases:
+      - scp:chat

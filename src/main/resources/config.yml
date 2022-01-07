@@ -1,0 +1,17 @@
+# Here is the config file of SimpleChat+
+# You can edit pretty much whatever you want there and in the message.yml
+
+# Boolean defining if the prefix appears in front of every message of the plugin
+prefix:
+  is-displayed: true
+  # Modify the prefix (you can use the %server_name% is you want the prefix to display the name of your server.)
+  message: "&e&l[&6&lSimpleChat+&e&l]"
+
+# All chat related parameters
+chat:
+  # Boolean representing the current state of the chat (enabled / disable)
+  is-enabled: true
+  # Boolean defining if permitted players (scp.chat.bypass) can send messages in chat while it is disabled.
+  bypass: true
+
+
