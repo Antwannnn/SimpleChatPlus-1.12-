@@ -2,4 +2,23 @@
 # You can edit almost all the messages of the plugin
 # Please convey a good image of the plugin and don't put explicit messages
 
-# Message sent to the sender when there isn't enough arguments
+# Permission message of the plugin
+permission-message: "&cYou don't have permission to perform that command."
+
+# Message sent to the sender when they don't enter enough arguments in the command.
+not-enough-args-msg: "&cNot enough arguments. Type /&l<scp help>&r&c."
+
+# Message sent to the sender when they enter too much arguments in the command.
+too-many-args-msg: "&cToo many arguments. Type /&l<scp help>&r&c."
+
+# Message sent t the sender when they enter an unknown argument after a command
+unknown-arg-msg: "&cUnknown argument. Type /&l<scp help>&r&c."
+
+# Message broadcast when the chat is cleared (%sender% stands for the player who sends the command.)
+clear-message: "&aChat has been cleared by &2%sender%"
+
+# Message sent when the sender tries to execute the clear chat command while it is
+clear-delay-message: "&cYou need to wait %seconds-left% seconds before clearing the chat again."
+
+# Message sent when a player tries to execute a command while the command is delayed
+delay-message: "&cYou need to wait &l%delay% seconds before reusing that command."

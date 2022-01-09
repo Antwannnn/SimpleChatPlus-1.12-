@@ -2,6 +2,7 @@ package net.antwan.simplechat;
 
 import net.antwan.simplechat.commands.ChatClass;
 import net.antwan.simplechat.filesmanager.MessagesManager;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,16 +13,6 @@ public class Main extends JavaPlugin {
     public FileConfiguration config = this.getConfig();
 
     public MessagesManager messages;
-
-    public String configAccessString(String path){
-        return config.getString(path);
-    }
-    public boolean configAccessBoolean(String path){
-        return config.getBoolean(path);
-    }
-    public int configAccessInt(String path){
-        return config.getInt(path);
-    }
 
     private final PluginDescriptionFile getPluginDescriptionFile = this.getDescription();
 
@@ -35,11 +26,13 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         loadExec();
         loadFiles();
+
     }
+
 
     @Override
     public void onDisable() {
-
+        messages.reloadConfig();
     }
 
     public void displayInfo(){
@@ -54,8 +47,18 @@ public class Main extends JavaPlugin {
     }
     public void loadFiles(){
         this.saveDefaultConfig();
-
         this.messages = new MessagesManager(this);
         messages.saveDefaultConfig();
     }
-}
+    // Clear chat method
+    public void clearChat(){
+        for(int a = 0; a < 125; a++){
+            Bukkit.broadcastMessage(" ");
+        }
+    }
+
+    }
+
+
+
+
