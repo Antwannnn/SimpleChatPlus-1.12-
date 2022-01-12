@@ -32,7 +32,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        messages.reloadConfig();
+
     }
 
     public void displayInfo(){
@@ -43,6 +43,7 @@ public class Main extends JavaPlugin {
     public void loadExec(){
         getLogger().info("Loading commands...");
         getCommand("chat").setExecutor(new ChatClass(this));
+        getServer().getPluginManager().registerEvents(new ChatClass(this), this);
         getLogger().info("Commands successfully enabled");
     }
     public void loadFiles(){

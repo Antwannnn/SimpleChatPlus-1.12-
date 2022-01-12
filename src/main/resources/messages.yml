@@ -2,17 +2,18 @@
 # You can edit almost all the messages of the plugin
 # Please convey a good image of the plugin and don't put explicit messages
 
+# General messages
 # Permission message of the plugin
 permission-message: "&cYou don't have permission to perform that command."
 
 # Message sent to the sender when they don't enter enough arguments in the command.
-not-enough-args-msg: "&cNot enough arguments. Type /&l<scp help>&r&c."
+not-enough-args-message: "&cNot enough arguments. Type /&l<scp help>&r&c."
 
 # Message sent to the sender when they enter too much arguments in the command.
-too-many-args-msg: "&cToo many arguments. Type /&l<scp help>&r&c."
+too-many-args-message: "&cToo many arguments. Type /&l<scp help>&r&c."
 
 # Message sent t the sender when they enter an unknown argument after a command
-unknown-arg-msg: "&cUnknown argument. Type /&l<scp help>&r&c."
+unknown-arg-message: "&cUnknown argument. Type /&l<scp help>&r&c."
 
 # Message broadcast when the chat is cleared (%sender% stands for the player who sends the command.)
 clear-message: "&aChat has been cleared by &2%sender%"
@@ -22,3 +23,22 @@ clear-delay-message: "&cYou need to wait %seconds-left% seconds before clearing 
 
 # Message sent when a player tries to execute a command while the command is delayed
 delay-message: "&cYou need to wait &l%delay% seconds before reusing that command."
+
+# Enabled / Disable messages
+# Message sent when the sender tries to enable the chat while it is already enabled
+already-enabled-message: "&cChat is already enabled !"
+
+# Message sent when the chat turns on.
+enabling-message: "&bChat has been turned-on by &3%sender%."
+
+# Message sent when the sender tries to disable chat while it is already disabled
+already-disabled-message: "&cChat is already disabled !"
+
+# Message sent when the chat turns off
+disabling-message: "&cChat has been turned-off by &4%sender%."
+
+# Message sent when a player tries to speak in chat while it is disabled
+disabled-message: "&cYou can't speak while chat is disabled"
+
+# Message sent when a player who has scp.chat.bypass permission send something in chat while it is disabled.
+bypass-message: "&4&l[Warning !] &r&cYou are talking while chat is disabled"
