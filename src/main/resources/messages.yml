@@ -7,7 +7,7 @@
 permission-message: "&cYou don't have permission to perform that command."
 
 # Message sent to the sender when they don't enter enough arguments in the command.
-not-enough-args-message: "&cNot enough arguments. Type /&l<scp help>&r&c."
+not-enough-args-message: "&cToo many arguments. Type /&l<scp help>&r&c."
 
 # Message sent to the sender when they enter too much arguments in the command.
 too-many-args-message: "&cToo many arguments. Type /&l<scp help>&r&c."
@@ -15,7 +15,7 @@ too-many-args-message: "&cToo many arguments. Type /&l<scp help>&r&c."
 # Message sent t the sender when they enter an unknown argument after a command
 unknown-arg-message: "&cUnknown argument. Type /&l<scp help>&r&c."
 
-# Message broadcast when the chat is cleared (%sender% stands for the player who sends the command.)
+# Message broadcast when the chat is cleared
 clear-message: "&aChat has been cleared by &2%sender%"
 
 # Message sent when the sender tries to execute the clear chat command while it is
@@ -29,16 +29,36 @@ delay-message: "&cYou need to wait &l%delay% seconds before reusing that command
 already-enabled-message: "&cChat is already enabled !"
 
 # Message sent when the chat turns on.
-enabling-message: "&bChat has been turned-on by &3%sender%."
+enabling-message: "&aChat has been enabled by &2%sender%."
 
 # Message sent when the sender tries to disable chat while it is already disabled
 already-disabled-message: "&cChat is already disabled !"
 
 # Message sent when the chat turns off
-disabling-message: "&cChat has been turned-off by &4%sender%."
+disabling-message: "&cChat has been disabled by &4%sender%."
 
 # Message sent when a player tries to speak in chat while it is disabled
 disabled-message: "&cYou can't speak while chat is disabled"
 
 # Message sent when a player who has scp.chat.bypass permission send something in chat while it is disabled.
-bypass-message: "&4&l[Warning !] &r&cYou are talking while chat is disabled"
+bypass-message: "&4&lWarning ! &r&cYou are talking while chat is disabled"
+
+# The part below contains all the messages related to ban word
+# Message sent when a player is entering in editor mode
+# %prefix% allows you to define which message you want to be preceded by the prefix.
+editor-mode-enter-messages:
+  - "%prefix% &6You are now in editor mode."
+  - "&8--------------------------------------"
+  - "&aType any word to add it in the ban word section."
+  - "&aIf the entered word is already banned, it will remove it from the list."
+  - "&8--------------------------------------"
+  - "&6Type &l'exit' &r&6to leave the editor mode."
+
+# Message sent when player tries to perform banword modify while he is already in the editor
+already-editor-mode-message: "&cYou are already in editor mode. If you want to leave it type &l'exit'&r&c."
+
+# Message sent when the sender send a chat with a banword in it
+ban-word-warning-message: "&cThe word &4&l%word% is banned."
+
+# Message sent when a player who has scp.banword.bypass permission type a banword in chat. %word% stands for the concerned word
+ban-word-bypass-message: "&cThe word &4&l%word% &cis a banword, don't use it too often !"

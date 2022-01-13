@@ -5,7 +5,12 @@ author: Atsura
 description: SimpleChat+ is a easy to use plugin based on chat moderation, management and filtering.
 commands:
   chat:
-    description: Core chat command of the plugin.
+    description: Main command of the plugin, type the /<scp help> for more infos.
     permission: scp.chat
     aliases:
-      - scp:chat
+      - scp
+  banword:
+    description: Banword manager command
+    permission: scp.banword
+    aliases:
+      - bw

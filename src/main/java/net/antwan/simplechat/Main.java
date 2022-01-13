@@ -1,9 +1,14 @@
 package net.antwan.simplechat;
 
+import net.antwan.simplechat.commands.BanwordClass;
 import net.antwan.simplechat.commands.ChatClass;
 import net.antwan.simplechat.filesmanager.MessagesManager;
+import net.antwan.simplechat.listeners.PluginListener;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,7 +37,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
     }
 
     public void displayInfo(){
@@ -43,7 +47,8 @@ public class Main extends JavaPlugin {
     public void loadExec(){
         getLogger().info("Loading commands...");
         getCommand("chat").setExecutor(new ChatClass(this));
-        getServer().getPluginManager().registerEvents(new ChatClass(this), this);
+        getCommand("banword").setExecutor(new BanwordClass(this));
+        getServer().getPluginManager().registerEvents(new PluginListener(this), this);
         getLogger().info("Commands successfully enabled");
     }
     public void loadFiles(){
@@ -51,13 +56,23 @@ public class Main extends JavaPlugin {
         this.messages = new MessagesManager(this);
         messages.saveDefaultConfig();
     }
-    // Clear chat method
     public void clearChat(){
         for(int a = 0; a < 125; a++){
             Bukkit.broadcastMessage(" ");
         }
     }
+    public void reloadConfigs(){
+        this.reloadConfig();
+        messages.reloadConfig();
+    }
 
+    public ItemStack createItem(Material id, String displayName){
+        ItemStack current = new ItemStack(id);
+        ItemMeta currentMeta = current.getItemMeta();
+        currentMeta.setDisplayName(displayName);
+        current.setItemMeta(currentMeta);
+        return current;
+        }
     }
 
 
