@@ -8,19 +8,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.MaterialData;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -39,7 +30,7 @@ public class ChatClass implements CommandExecutor, Listener {
 
         FileConfiguration messageConfig = main.messages.getConfig();
 
-        FileConfiguration mainConfig = main.config;
+        FileConfiguration mainConfig = main.config.getConfig();
 
         Player p = (Player) sender;
 
@@ -54,7 +45,7 @@ public class ChatClass implements CommandExecutor, Listener {
                     Inventory menu = Bukkit.createInventory(null, 9, ChatColor.translateAlternateColorCodes('&', guiName));
                     ItemStack clear = main.createItem(Material.PAPER, "§aClear chat");
                     ItemStack toggle = main.createItem(Material.BOOK_AND_QUILL, isEnabled ? "§cDisable chat" : "§aEnable chat");
-                    ItemStack banword = main.createItem(Material.FIREBALL, "§6Add a banword");
+                    ItemStack banword = main.createItem(Material.CLAY_BALL, "§6Banword Editor");
                     ItemStack history = main.createItem(Material.INK_SACK, "§bHistory viewer");
                     ItemStack close = main.createItem(Material.REDSTONE, "§cLeave menu");
                     menu.setItem(0, clear); menu.setItem(1, toggle); menu.setItem(2, banword); menu.setItem(3, history) ;menu.setItem(8, close);
@@ -82,7 +73,7 @@ public class ChatClass implements CommandExecutor, Listener {
 
                         case "enable":
                             if (!isEnabled) {
-                                main.getConfig().set("chat.state", true);
+                                mainConfig.set("chat.state", true);
                                 p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&',messageConfig.getString("enabling-message").replace("%sender%", p.getName())));
                                 return true;
 
@@ -93,7 +84,7 @@ public class ChatClass implements CommandExecutor, Listener {
                         case "disable":
                             if (isEnabled) {
                                 p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&',messageConfig.getString("disabling-message").replace("%sender%", p.getName())));
-                                main.getConfig().set("chat.state", false);
+                                mainConfig.set("chat.state", false);
                                 return true;
                             } else {
 

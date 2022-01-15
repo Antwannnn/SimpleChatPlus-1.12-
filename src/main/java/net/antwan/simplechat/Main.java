@@ -2,11 +2,11 @@ package net.antwan.simplechat;
 
 import net.antwan.simplechat.commands.BanwordClass;
 import net.antwan.simplechat.commands.ChatClass;
+import net.antwan.simplechat.filesmanager.ConfigManager;
 import net.antwan.simplechat.filesmanager.MessagesManager;
 import net.antwan.simplechat.listeners.PluginListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    public FileConfiguration config = this.getConfig();
+    public ConfigManager config;
 
     public MessagesManager messages;
 
@@ -52,9 +52,11 @@ public class Main extends JavaPlugin {
         getLogger().info("Commands successfully enabled");
     }
     public void loadFiles(){
-        this.saveDefaultConfig();
+        this.config = new ConfigManager(this);
         this.messages = new MessagesManager(this);
-        messages.saveDefaultConfig();
+
+        this.config.saveDefaultConfig();
+        this.messages.saveDefaultConfig();
     }
     public void clearChat(){
         for(int a = 0; a < 125; a++){
@@ -62,8 +64,8 @@ public class Main extends JavaPlugin {
         }
     }
     public void reloadConfigs(){
-        this.reloadConfig();
-        messages.reloadConfig();
+        this.config.reloadConfig();
+        this.messages.reloadConfig();
     }
 
     public ItemStack createItem(Material id, String displayName){

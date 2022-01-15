@@ -50,7 +50,7 @@ editor-mode-enter-messages:
   - "%prefix% &6You are now in editor mode."
   - "&8--------------------------------------"
   - "&aType any word to add it in the ban word section."
-  - "&aIf the entered word is already banned, it will remove it from the list."
+  - "&aIf the entered word is already in the list, it will remove it from the section."
   - "&8--------------------------------------"
   - "&6Type &l'exit' &r&6to leave the editor mode."
 
@@ -58,7 +58,19 @@ editor-mode-enter-messages:
 already-editor-mode-message: "&cYou are already in editor mode. If you want to leave it type &l'exit'&r&c."
 
 # Message sent when the sender send a chat with a banword in it
-ban-word-warning-message: "&cThe word &4&l%word% is banned."
+ban-word-warning-message: "&cThe word &4&l%word% &r&cis banned."
 
 # Message sent when a player who has scp.banword.bypass permission type a banword in chat. %word% stands for the concerned word
 ban-word-bypass-message: "&cThe word &4&l%word% &cis a banword, don't use it too often !"
+
+# Message sent when a player adds a word to the banword list.
+add-ban-word-message: "&aThe word &2&l%word% &ahas been added to banwords list."
+
+# Message sent when a player remove a word from the banwords list.
+remove-ban-word-message: "&cThe word &4&l%word% &r&chas been removed from banwords list."
+
+# Message sent when a player exit the banword editor.
+exit-editor-message: "&aYou left the editor."
+
+# Message sent when a player reset the banwords
+reset-ban-word-message: "&6Banword section has been reset."

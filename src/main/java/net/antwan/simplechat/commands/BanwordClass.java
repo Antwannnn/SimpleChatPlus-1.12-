@@ -10,7 +10,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +29,7 @@ public class BanwordClass implements CommandExecutor, Listener {
 
         FileConfiguration messageConfig = main.messages.getConfig();
 
-        FileConfiguration mainConfig = main.config;
+        FileConfiguration mainConfig = main.config.getConfig();
 
         Player p = (Player) sender;
 
@@ -43,7 +42,7 @@ public class BanwordClass implements CommandExecutor, Listener {
 
             if(args.length == 1){
                 switch(args[0]){
-                    case "modify":
+                    case "edit":
                         if(!inEditor.containsKey(p.getUniqueId())) {
                             inEditor.put(p.getUniqueId(), true);
                             List<String> lines = messageConfig.getStringList("editor-mode-enter-messages");
@@ -54,6 +53,10 @@ public class BanwordClass implements CommandExecutor, Listener {
                         else{
                             p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', messageConfig.getString("already-editor-mode-message")));
                         }
+                        break;
+                    case "reset":
+                        mainConfig.getStringList("ban-word").clear();
+                        p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', messageConfig.getString("reset-ban-word-message")));
                         break;
                     default:
                         p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&',messageConfig.getString("unknown-arg-message")));

@@ -5,18 +5,16 @@ prefix: "&6&l[SimpleChat+]"
 
 gui-name: "&aChat Management"
 
-# All chat related parameters
 chat:
-  # Boolean representing the current state of the chat (true = enabled / false = disable)
+
   state: true
-  # Boolean defining if permitted players (scp.chat.bypass) can send messages in chat while it is disabled.
+
   bypass: true
 
-# Integer representing how long a player should wait after using the clear chat command.
 clear-delay: 20
 
-# These are all the banwords
-ban-word: []
+ban-word:
+  -
 
 ban-word-bypass: false
 
