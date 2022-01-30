@@ -11,11 +11,13 @@ import java.util.logging.Level;
 
 public class ConfigManager {
 
-    private Main main;
+    private final Main main;
 
     private File configFile = null;
 
     private FileConfiguration configuration = null;
+
+
 
     public ConfigManager (Main main){
         this.main = main;

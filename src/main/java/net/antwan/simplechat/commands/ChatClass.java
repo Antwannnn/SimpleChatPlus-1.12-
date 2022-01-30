@@ -46,15 +46,13 @@ public class ChatClass implements CommandExecutor, Listener {
                     ItemStack clear = main.createItem(Material.PAPER, "§aClear chat");
                     ItemStack toggle = main.createItem(Material.BOOK_AND_QUILL, isEnabled ? "§cDisable chat" : "§aEnable chat");
                     ItemStack banword = main.createItem(Material.CLAY_BALL, "§6Banword Editor");
-                    ItemStack history = main.createItem(Material.INK_SACK, "§bHistory viewer");
                     ItemStack close = main.createItem(Material.REDSTONE, "§cLeave menu");
-                    menu.setItem(0, clear); menu.setItem(1, toggle); menu.setItem(2, banword); menu.setItem(3, history) ;menu.setItem(8, close);
+                    menu.setItem(0, clear); menu.setItem(1, toggle); menu.setItem(2, banword); menu.setItem(8, close);
                     p.openInventory(menu);
                     return true;
                 }
                 if (args.length == 1) {
                     switch (args[0]) {
-                        //Must add console sender thing
                         case "clear":
                             UUID playerId = p.getUniqueId();
                             int cooldownTime = mainConfig.getInt("clear-delay");

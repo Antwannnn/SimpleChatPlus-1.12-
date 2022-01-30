@@ -54,10 +54,6 @@ public class BanwordClass implements CommandExecutor, Listener {
                             p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', messageConfig.getString("already-editor-mode-message")));
                         }
                         break;
-                    case "reset":
-                        mainConfig.getStringList("ban-word").clear();
-                        p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', messageConfig.getString("reset-ban-word-message")));
-                        break;
                     default:
                         p.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&',messageConfig.getString("unknown-arg-message")));
                 }
